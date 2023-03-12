@@ -6,12 +6,8 @@ from rest_framework import viewsets
 
 # Create your views here.
 class Book(viewsets.ViewSet):
-	def list(self, request):
-		return Response({"message":"All books"},status.HTTP_200_OK)
 	def create(self, request):
 		return Response({"message":"Creating a book"},status.HTTP_201_CREATED)
-	def retreive(self,request, pk =None):
-		return Response({'message':'Displaying a book'},status.HTTP_200_OK)
 	def update(self, request, pk=None):
 		return Response({"message":"Updating a book"},status.HTTP_200_OK)
 	def destroy(self, request, pk=None):
@@ -19,3 +15,9 @@ class Book(viewsets.ViewSet):
 	def partial_update(self, request, pk =None):
 		return Response({'message':'Partially updating a book'},status.HTTP_200_OK)
 	
+class ReadOnlyBooks(viewsets.ReadOnlyModelViewSet):
+	def list(self, request):
+		return Response({"message":"All books"},status.HTTP_200_OK)
+	def retreive(self,request, pk =None):
+		return Response({'message':'Displaying a book'},status.HTTP_200_OK)
+
