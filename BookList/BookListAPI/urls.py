@@ -3,7 +3,7 @@ from . import views
 urlpatterns = [
     path('books/', views.Book.as_view(
         {
-            'get':'books',
+            'get':'list',
             'post':'create'
         }
     )),
