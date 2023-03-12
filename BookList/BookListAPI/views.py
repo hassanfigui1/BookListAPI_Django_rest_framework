@@ -14,5 +14,8 @@ class Book(viewsets.ViewSet):
 		return Response({'message':'Displaying a book'},status.HTTP_200_OK)
 	def update(self, request, pk=None):
 		return Response({"message":"Updating a book"},status.HTTP_200_OK)
-	def delete(self, request, pk=None):
+	def destroy(self, request, pk=None):
 		return Response({"message":'Removing a book'},status.HTTP_200_OK)
+	def partial_update(self, request, pk =None):
+		return Response({'message':'Partially updating a book'},status.HTTP_200_OK)
+	
