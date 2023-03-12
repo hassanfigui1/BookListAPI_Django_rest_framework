@@ -14,3 +14,5 @@ class Book(viewsets.ViewSet):
 		return Response({'message':'Displaying a book'},status.HTTP_200_OK)
 	def update(self, request, pk=None):
 		return Response({"message":"Updating a book"},status.HTTP_200_OK)
+	def delete(self, request, pk=None):
+		return Response({"message":'Removing a book'},status.HTTP_200_OK)
