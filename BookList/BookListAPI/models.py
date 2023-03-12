@@ -9,3 +9,5 @@ class Book(models.Model):
         indexes =[
             models.Index(fields=['price']),
         ] 
+    def __str__(self):
+        return self.title
