@@ -7,10 +7,10 @@ urlpatterns = [
             'post':'create'
         }
     )),
-    path('books/<int: pk>',views.Book.as_view({
+    path('books/<int:pk>',views.Book.as_view({
         'put':'update',
-        'path':'partial_update',
+        'patch':'partial_update',
         'delete':'destroy',
-        'get':'retrieve'
+        'get':'retreive'
     }))
 ]
