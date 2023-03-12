@@ -14,10 +14,9 @@ class Book(viewsets.ViewSet):
 		return Response({"message":'Removing a book'},status.HTTP_200_OK)
 	def partial_update(self, request, pk =None):
 		return Response({'message':'Partially updating a book'},status.HTTP_200_OK)
-	
-class ReadOnlyBooks(viewsets.ReadOnlyModelViewSet):
-	def list(self, request):
-		return Response({"message":"All books"},status.HTTP_200_OK)
 	def retreive(self,request, pk =None):
 		return Response({'message':'Displaying a book'},status.HTTP_200_OK)
 
+class ReadOnlyBooks(viewsets.ReadOnlyModelViewSet):
+	def list(self, request):
+		return Response({"message":"All books"},status.HTTP_200_OK)
