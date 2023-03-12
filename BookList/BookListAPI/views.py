@@ -10,5 +10,7 @@ class Book(viewsets.ViewSet):
 		return Response({"message":"All books"},status.HTTP_200_OK)
 	def create(self, request):
 		return Response({"message":"Creating a book"},status.HTTP_201_CREATED)
+	def retreive(self,request, pk =None):
+		return Response({'message':'Displaying a book'},status.HTTP_200_OK)
 	def update(self, request, pk=None):
 		return Response({"message":"Updating a book"},status.HTTP_200_OK)
