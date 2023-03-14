@@ -20,7 +20,15 @@ class BookList(APIView):
 
 class Book(APIView):
 	def get(self, request, pk):
-		return Response({'message':"single book with id : "+pk},status=status.HTTP_200_OK)
+		if (models.Book.objects.filter(pk=pk).exists()):
+			book = models.Book.objects.get(pk=pk)
+			return Response({
+				'id':pk,
+				'title':book.title,
+				'author':book.author,
+				'price':book.price
+			},status=status.HTTP_200_OK)
+		return Response({'message':"This book does not exist "},status=status.HTTP_200_OK)
 
 class Books(viewsets.ViewSet):
 	def create(self, request):
