@@ -4,8 +4,19 @@ from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework import viewsets
 from . import models
+from rest_framework.views import APIView
 from django.forms.models import model_to_dict
 # Create your views here.
+ 
+
+class BookList(APIView):
+	def get(self, request):
+		author = request.GET.get('author')
+		if (author):
+			return Response({'message':"this book was writen by the author : "+author},status=status.HTTP_200_OK)
+		return Response({"message":"List of books"},status=status.HTTP_200_OK)
+	def post(self, request):
+		return Response({'message':'Creating a book'},status=status.HTTP_201_CREATED)
 class Book(viewsets.ViewSet):
 	def create(self, request):
 		return Response({"message":"Creating a book"},status.HTTP_201_CREATED)
@@ -25,3 +36,4 @@ class ReadBooks(viewsets.ReadOnlyModelViewSet):
 		if author:
 			return Response({'message':'Books of the author : '+author},status.HTTP_200_OK)
 		return Response({"message":"All books"},status.HTTP_200_OK)
+
