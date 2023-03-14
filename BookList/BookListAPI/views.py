@@ -6,8 +6,7 @@ from rest_framework import viewsets
 from . import models
 from rest_framework.views import APIView
 from django.forms.models import model_to_dict
-# Create your views here.
- 
+# Create your views here. 
 
 class BookList(APIView):
 	def get(self, request):
