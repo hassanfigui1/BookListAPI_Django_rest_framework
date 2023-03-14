@@ -17,7 +17,12 @@ class BookList(APIView):
 		return Response({"message":"List of books"},status=status.HTTP_200_OK)
 	def post(self, request):
 		return Response({'message':'Creating a book'},status=status.HTTP_201_CREATED)
-class Book(viewsets.ViewSet):
+
+class Book(APIView):
+	def get(self, request, pk):
+		return Response({'message':"single book with id : "+pk},status=status.HTTP_200_OK)
+
+class Books(viewsets.ViewSet):
 	def create(self, request):
 		return Response({"message":"Creating a book"},status.HTTP_201_CREATED)
 	def update(self, request, pk=None):
